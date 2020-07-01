@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :tags
-  resources :notepads do
-    resources :notes
+
+  namespace :api do
+    namespace :v1 do
+      resources :tags
+      resources :notepads do
+        resources :notes
+      end
+    end
   end
 
   devise_for :users,
