@@ -22,7 +22,7 @@ module Api::V1
       @notepad = Notepad.new(notepad_params)
 
       if @notepad.save
-        render json: @notepad, status: :created, location: @notepad
+        render json: @notepad, status: :created, location: url_for([:api_v1, @notepad])
       else
         render json: @notepad.errors, status: :unprocessable_entity
       end
