@@ -1,10 +1,13 @@
 module Api::V1
   class NotepadsController < ApplicationController
+
+    before_action :authenticate_user!
     before_action :set_notepad, only: [:show, :update, :destroy]
 
     # GET /notepads
     def index
-      @notepads = Notepad.all
+      user_id = decode_token[0]['sub']
+      @notepads = Notepad.where(user_id: user_id)
 
       render json: @notepads
     end
