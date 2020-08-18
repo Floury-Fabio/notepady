@@ -321,6 +321,6 @@ Devise.setup do |config|
       ['DELETE', %r{^/users/sign_out.json$}]
     ]
 
-    jwt.expiration_time = 5.minutes.to_i
+    jwt.expiration_time = 2.hours.to_i
   end
 end
