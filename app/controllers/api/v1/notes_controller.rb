@@ -4,8 +4,7 @@ module Api::V1
 
     # GET /notes
     def index
-      @notes = Note.all
-
+      @notes = Note.where(notepad_id: params[:notepad_id])
       render json: @notes
     end
 
