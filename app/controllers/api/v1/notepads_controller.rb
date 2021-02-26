@@ -14,7 +14,6 @@ module Api::V1
 
     # GET /notepads/1
     def show
-      render json: @notepad
     end
 
     # POST /notepads
