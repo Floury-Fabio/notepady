@@ -35,7 +35,11 @@ module Api::V1
 
     # DELETE /notes/1
     def destroy
-      @note.destroy
+      if @note.destroy
+        render json: @note
+      else
+        render json: @note.errors, status: :unprocessable_entity
+      end
     end
 
     private
