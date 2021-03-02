@@ -32,6 +32,10 @@ module Notypad
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+    I18n.available_locales = %i[en fr]
+    config.i18n.default_locale = :fr
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
+
     config.api_only = true
   end
 end
